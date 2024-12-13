@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const auth = localStorage.getItem("isAuth");
-    setIsAuth(auth === "true");
+    setIsAuth(false);
   }, []);
 
   const signUserOut = () => {
@@ -30,9 +30,12 @@ function App() {
         {!isAuth ? (
           <Link to="/login">Login</Link>
         ) : ( //conditional nav link 
-          <button onClick={signUserOut}>Logout</button>
+          <>
+            <Link to="/createpost" isAuth={isAuth}>Create-Post</Link>
+            <button onClick={signUserOut}>Logout</button>
+          </>
         )}
-        <Link to="/createpost">Create-Post</Link>
+        
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

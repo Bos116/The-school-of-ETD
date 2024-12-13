@@ -3,13 +3,13 @@ import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ isAuth, setIsAuth }) => { // Receive props correctly
+const Login = ({ isAuth, setIsAuth }) => {
   let navigate = useNavigate();
-
-  const signInWithGoogle = () => { // Removed unnecessary arguments
+  //pop up window and sign in setup
+  const signInWithGoogle = () => { 
     signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", true); // Store 'isAuth' correctly
-      setIsAuth(true); // Use the function from props
+      localStorage.setItem("isAuth", true);
+      setIsAuth(true);
       navigate("/");
     });
   };
