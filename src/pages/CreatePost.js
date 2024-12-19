@@ -20,6 +20,7 @@ const CreatePost = ({isAuth}) => {
           Id: auth.currentUser.uid
         }})
       navigate('/')
+      
     };
 
   return (

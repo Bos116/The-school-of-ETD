@@ -10,7 +10,7 @@ import { auth } from "./firebase-config";
 import Navbar from "./components/navbar/Navbar";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-
+import CreateComment from "./pages/CreateComment"
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
@@ -48,8 +48,9 @@ function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="/createpost" element={<CreatePost />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<Blog isAuth={isAuth} />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/comment/:postId" element={<CreateComment />} />
       </Routes>
     </Router>
   );
