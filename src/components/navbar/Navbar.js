@@ -62,15 +62,19 @@ function Navbar({ isAuth, signUserOut }) {
         <Link to="/" style={styles.link}>
           Home
         </Link>
+        <Link to="/quiz" style={styles.link}>
+          Quiz
+        </Link>
+       
+        <Link to="/contact" style={styles.link}>
+          Contact-Us
+        </Link>
         {!isAuth ? (
           <Link to="/login" style={styles.loginButton}>
             Login
           </Link>
         ) : (
-          <>
-            <Link to="/quiz" style={styles.link}>
-              Quiz
-            </Link>
+          <> 
             <Link to="/blog" style={styles.link}>
               Blog
             </Link>

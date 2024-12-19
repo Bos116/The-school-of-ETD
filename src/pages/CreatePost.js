@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addDoc, collection} from 'firebase/firestore';
 import { db, auth } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
-{/* create post page */}
+
 const CreatePost = ({isAuth}) => {
   //create posts props utilizing useState
   const [title, setTitle] = useState('');
   const [postText, setPostText] = useState('');
   const postCollectionRef = collection(db, "posts");//db reference
   let navigate = useNavigate();
+
+  
   const CreatePost = async () => {
     await addDoc(postCollectionRef, {//formattting doc for db
         title, 
