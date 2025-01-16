@@ -1,0 +1,89 @@
+/* DynamicButton.css */
+
+.custom-btn {
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition effects */
+  }
+  
+  /* Variant styles */
+  .custom-btn.primary {
+    background-color: #007bff; /* Primary color */
+    color: white;
+  }
+  
+  .custom-btn.secondary {
+    background-color: #6c757d; /* Secondary color */
+    color: white;
+  }
+  
+  .custom-btn.success {
+    background-color: #28a745; /* Success color */
+    color: white;
+  }
+  
+  .custom-btn.danger {
+    background-color: #dc3545; /* Danger color */
+    color: white;
+  }
+  
+  .custom-btn.warning {
+    background-color: #ffc107; /* Warning color */
+    color: black;
+  }
+  
+  .custom-btn.info {
+    background-color: #17a2b8; /* Info color */
+    color: white;
+  }
+  
+  .custom-btn.light {
+    background-color: #f8f9fa; /* Light color */
+    color: black;
+  }
+  
+  .custom-btn.dark {
+    background-color: #343a40; /* Dark color */
+    color: white;
+  }
+  
+  /* Outline styles */
+  .custom-btn.outline {
+    background-color: transparent; /* Transparent background */
+    border: 2px solid; /* Border */
+  }
+  
+  /* Specific outline colors */
+  .custom-btn.outline.primary {
+    border-color: #007bff;
+    color: #007bff;
+  }
+  
+  .custom-btn.outline.secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+  
+  /* Add additional outline colors as needed... */
+  
+  /* Size variations */
+  .custom-btn.sm {
+    font-size: 14px;
+    padding: 5px 10px; /* Smaller padding */
+  }
+  
+  .custom-btn.lg {
+    font-size: 18px;
+    padding: 15px 30px; /* Larger padding */
+  }
+  
+  /* Disabled state */
+  .custom-btn:disabled {
+    background-color: #e0e0e0; /* Disabled background */
+    color: #a0a0a0; /* Disabled text color */
+    cursor: not-allowed; /* Not-allowed cursor */
+  }
+  

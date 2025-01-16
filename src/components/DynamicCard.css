@@ -1,0 +1,77 @@
+.custom-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center;     /* Centers the content vertically */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 70vh; /* Card height based on viewport height */
+  }
+  
+  .custom-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .custom-card-img-wrapper {
+    flex: 1;
+    max-width: 50%; /* Image takes 50% of the card width */
+    height: 100%;   /* Ensure the image takes the full height of the card */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;     /* Center the image vertically */
+  }
+  
+  .custom-card-img {
+    width: 100%;
+    height: 100%; /* Full height for the image */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  
+  .custom-card-body {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the text and button */
+    align-items: center;     /* Horizontally center the text and button */
+    text-align: center;      /* Center-align the text */
+    height: 100%;            /* Ensure the content takes full height */
+  }
+  
+  .custom-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .custom-card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .custom-card .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    /* For small screens, stack the image and content vertically */
+    .custom-card {
+      flex-direction: column;
+      height: auto; /* Let the card adjust height naturally on smaller screens */
+    }
+  
+    .custom-card-img-wrapper {
+      max-width: 100%; /* Image takes full width on small screens */
+      height: 40vh;    /* Set a custom height for the image on smaller screens */
+    }
+  
+    .custom-card-body {
+      padding: 15px;
+      height: auto;    /* Let the content adjust height naturally on smaller screens */
+    }
+  }
