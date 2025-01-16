@@ -289,3 +289,48 @@ textarea {
 .deletePost i {
   font-size: 30px; /* Size of the trashcan icon */
 }
+
+
+/* Center the container */
+.quiz-container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the title */
+.quiz-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Center and resize the logo */
+.quiz-image {
+  width: 60%; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Center the buttons */
+.quiz-ap {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add spacing between buttons */
+}
+
+/* Style the buttons */
+.quiz-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quiz-button:hover {
+  background-color: #0056b3;
+}
