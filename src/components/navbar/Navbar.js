@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.svg"; // Replace with your logo file path
+import logo from "../images/logo.png"; // Replace with your logo file path
 
 function Navbar({ isAuth, signUserOut }) {
   const styles = {
@@ -20,7 +20,7 @@ function Navbar({ isAuth, signUserOut }) {
       alignItems: "center",
     },
     logo: {
-      width: "50px", // Adjust to your logo size
+      width: "200px", // Adjust to your logo size
       height: "auto",
     },
     navLinks: {

@@ -1,8 +1,11 @@
 import React from 'react'
+import EngineeringInterestAnalyzer from '../components/AiQuiz/EngineeringInterestAnalyzer'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>Contact
+      <EngineeringInterestAnalyzer/>
+    </div>
   )
 }
 

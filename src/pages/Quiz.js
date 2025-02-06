@@ -2,11 +2,11 @@ import React from 'react';
 import logo from '../components/images/logo.svg'; // Adjust the path if necessary
 import ClickableImage from '../components/quiz/ClickableImage'; // Import the ClickableImage component
 import '../App.css'; // Import the CSS file
+import DynamicButton from '../components/DynamicButton';
 
 const Quiz = () => {
   return (
     <div className="quiz-container">
-      <h1 className="quiz-title">Quiz</h1>
       <ClickableImage 
         className="quiz-image"
         src={logo} 
@@ -19,9 +19,9 @@ const Quiz = () => {
       </div>
 
       <div className="quiz-ap">
-        <button className="quiz-button">Next Question</button>
-        <button className="quiz-button">Hint</button>
-        <button className="quiz-button">Previous Question</button>
+        <DynamicButton className="quiz-button" variant='danger' label="Previous Question"></DynamicButton>
+        <DynamicButton className="quiz-button" variant='info' label="Hint"></DynamicButton>
+        <DynamicButton className="quiz-button" variant='primary' label="Next Question"></DynamicButton>
       </div>
     </div>
   );

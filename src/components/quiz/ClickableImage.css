@@ -10,7 +10,7 @@
   
   .clickable-image {
     width: 100%;
-    max-width: 1000px; /* Adjust based on your needs */
+    max-width: 600px; /* Adjust based on your needs */
     cursor: pointer;
   }
   
