@@ -1,10 +1,10 @@
 import React from 'react'
-import EngineeringInterestAnalyzer from '../components/AiQuiz/EngineeringInterestAnalyzer'
+import ContactForm from '../components/ContactForm'
 
 const Contact = () => {
   return (
-    <div>Contact
-      <EngineeringInterestAnalyzer/>
+    <div>
+      <ContactForm/>
     </div>
   )
 }

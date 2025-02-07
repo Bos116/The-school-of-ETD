@@ -11,6 +11,7 @@ import Navbar from "./components/navbar/Navbar";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import CreateComment from "./pages/CreateComment"
+
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
