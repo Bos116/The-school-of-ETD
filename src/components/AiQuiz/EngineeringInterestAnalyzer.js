@@ -3,33 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as use from "@tensorflow-models/universal-sentence-encoder";
 import { kmeans } from "ml-kmeans";
 
-const EngineeringInterestAnalyzer = () => {
-    const [userInputs, setUserInputs] = useState([
-        "Aerospace engineering.",
-        "Aerospace engineering.",
-        "Aerospace engineering.",
-        "Material engineering.",
-        "Material engineering.",
-        "Mechanical engineering.",
-        "Surface engineering.",
-        "Industrial engineering.",
-        "Civil engineering.",
-        "Electrical engineering.",
-        "Chemical engineering.",
-        "Environmental engineering.",
-        "Software engineering.",
-        "Biomedical engineering.",
-        "Nuclear engineering.",
-        "Automotive engineering.",
-        "Petroleum engineering.",
-        "Agricultural engineering.",
-        "Marine engineering.",
-        "Mining engineering.",
-        "Structural engineering.",
-        "Robotics engineering.",
-        "Telecommunications engineering.",
-    ]);
-
+const EngineeringInterestAnalyzer = ({ userInputs }) => {
     const [model, setModel] = useState(null);
     const [embeddings, setEmbeddings] = useState([]);
     const [clusters, setClusters] = useState([]);
@@ -46,12 +20,18 @@ const EngineeringInterestAnalyzer = () => {
         loadModel();
     }, []);
 
-    // Convert text inputs into embeddings
+    // Convert user inputs into embeddings
     const getEmbeddings = async () => {
-        setIsLoading(true); // Set loading state to true when embeddings are being generated
+        setIsLoading(true);
 
         if (!model) {
             console.error("⚠️ Model not loaded yet!");
+            return;
+        }
+
+        if (userInputs.length === 0) {
+            console.error("⚠️ No user inputs provided!");
+            setIsLoading(false);
             return;
         }
 
@@ -60,27 +40,22 @@ const EngineeringInterestAnalyzer = () => {
         setEmbeddings(embeddingsArray);
         console.log("✅ Embeddings generated:", embeddingsArray);
 
-        setIsLoading(false); // Set loading state to false once embeddings are ready
+        setIsLoading(false);
     };
 
-    // Cluster Engineering Interests using fixed centroids
+    // Cluster Engineering Interests using k-means
     const clusterInterests = () => {
         if (!embeddings.length) {
             console.error("⚠️ No embeddings found. Click 'Analyze Interests' first!");
             return;
         }
 
-        const numClusters = 5; // Set number of clusters
-
-        // Choose first few embeddings as fixed initial centroids
-        const fixedInitialCentroids = embeddings.slice(0, numClusters);
+        const numClusters = 4; // Define number of clusters
 
         try {
             console.log("🔄 Running K-Means Clustering...");
 
-            // Use fixed initial centroids
-            const result = kmeans(embeddings, numClusters, { initialization: fixedInitialCentroids });
-
+            const result = kmeans(embeddings, numClusters);
             setClusters(result.clusters);
             console.log("✅ Clustering complete! Results:", result.clusters);
 
@@ -91,21 +66,18 @@ const EngineeringInterestAnalyzer = () => {
         }
     };
 
-    // Function to calculate and display the top 3 most common fields
+    // Calculate and display the top 3 most common fields
     const displayTopFields = () => {
         const fieldCount = {};
 
-        // Count occurrences of each input
         userInputs.forEach((field) => {
             fieldCount[field] = (fieldCount[field] || 0) + 1;
         });
 
-        // Sort the fields by the number of occurrences (descending order)
         const sortedFields = Object.entries(fieldCount)
             .sort((a, b) => b[1] - a[1])
-            .slice(0, 3); // Get the top 3 fields
+            .slice(0, 3);
 
-        // Set the top fields to display
         setTopFields(sortedFields);
     };
 
@@ -115,11 +87,7 @@ const EngineeringInterestAnalyzer = () => {
             
             {/* Analyze Interests Button */}
             <button onClick={getEmbeddings} disabled={isLoading}>
-                {isLoading ? (
-                    <span>Loading...</span> // Loading text while fetching
-                ) : (
-                    "Analyze Interests"
-                )}
+                {isLoading ? "Loading..." : "Analyze Interests"}
             </button>
             
             {/* Find Patterns Button */}
