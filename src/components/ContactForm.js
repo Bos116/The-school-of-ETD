@@ -33,7 +33,7 @@ const ContactForm = () => {
     // Handle form submission
     const SendEmail = (e) => {
         e.preventDefault();
-        emailjs.sendForm('service_hatgsda', 'template_3qk5pcu', e.target, '1SFJl6Zg9k4MpVQKW')
+        emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, e.target, process.env.REACT_APP_PUBLIC_KEY)
         // Simulating form submission
         console.log("Form Submitted:", formData);
 
