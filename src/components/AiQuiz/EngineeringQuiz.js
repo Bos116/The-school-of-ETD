@@ -10,14 +10,14 @@ import Seven from "../images/QuizImages/7.jpg";
 import Eight from "../images/QuizImages/8.jpg";
 
 const quizData = [
-    { question: "What field of engineering do you see in this image?", image: One },
-    { question: "What field of engineering is represented here?", image: Two },
-    { question: "Which engineering field best describes this?", image: Three },
-    { question: "What area of engineering does this image inspire?", image: Four },
-    { question: "Which engineering discipline is shown here?", image: Five },
-    { question: "What engineering domain do you associate this image with?", image: Six },
-    { question: "Which engineering field does this image relate to?", image: Seven },
-    { question: "What engineering specialization do you think this image represents?", image: Eight },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: One },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Two },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Three },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Four },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Five },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Six },
+    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Seven },
+    { question: "WWhich fields of engineering in this image inspire or interest you the most?", image: Eight },
 ];
 
 const EngineeringQuiz = () => {
