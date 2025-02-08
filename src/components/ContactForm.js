@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import emailjs from "@emailjs/browser"
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: "",
@@ -31,9 +31,9 @@ const ContactForm = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const SendEmail = (e) => {
         e.preventDefault();
-        
+        emailjs.sendForm('service_hatgsda', 'template_3qk5pcu', e.target, '1SFJl6Zg9k4MpVQKW')
         // Simulating form submission
         console.log("Form Submitted:", formData);
 
@@ -53,7 +53,7 @@ const ContactForm = () => {
     return (
         <div style={{ maxWidth: "600px", margin: "auto", padding: "20px", border: "1px solid #ddd", borderRadius: "10px", background: "#f9f9f9" }}>
             <h2>📞 Contact Us</h2>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
+            <form onSubmit={SendEmail} style={{ display: "flex", flexDirection: "column" }}>
                 
                 {/* Name */}
                 <label>Name:</label>

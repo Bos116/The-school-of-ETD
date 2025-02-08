@@ -6,7 +6,6 @@ import { kmeans } from "ml-kmeans";
 // Define a mapping for fields and their subfields
 const fieldMapping = {
   "Mechanical Engineering": [
-    "Aerospace",
     "Automotive",
     "Robotics",
     "Materials Science",
