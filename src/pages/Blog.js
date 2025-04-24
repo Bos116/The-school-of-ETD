@@ -61,7 +61,7 @@ function Blog({ isAuth }) {
       {/* Create Post Button */}
       <div style={{ marginBottom: "20px", textAlign: "center" }}>
         <button>
-          <Link to="/createpost" style={{ textDecoration: "none", color: "inherit" }}>
+          <Link to="/createpost" style={{ textDecoration: "none", color: "inherit", fontSize: "14px" }}>
             Create a Post
           </Link>
         </button>

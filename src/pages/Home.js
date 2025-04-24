@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Headers/Header'
 import DynamicCard from '../components/DynamicCard'
-
+import ImageOne from "../components/images/images.jpeg"
+import ImageTwo from '../components/images/image1.png'
 const Home = () => {
   return (
     <div>
@@ -22,25 +23,25 @@ const Home = () => {
         { text: 'Get Started', link: '/get-started', bgColor: '#ffc107', textColor: '#212529' },
         { text: 'Contact Us', link: '/contact', bgColor: '#ffc107', textColor: '#212529' }
     ]}/>
-    <DynamicCard
-          imgSrc="/logo512.png"
-          title="Header 1"
-          text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-          label="click me"
+        <DynamicCard
+          imgSrc={ImageTwo}
+          title="Why Christ Church University?"
+          text="We've grouped our courses into subject areas to help you find your perfect course. Search all our subject areas below."
+          label="Visit Christ church website"
           width="100%"
-          imgWidth="50%"
-          imgHeight="300px"
+          imgWidth="100%"
+          imgHeight="auto"
           className="dynamic-card"
         />
         <DynamicCard
-          imgSrc="/logo512.png"
-          title="Header 1"
-          text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+          imgSrc={ImageOne}
+          title="Our Courses"
+          text="Find the course that fits your future. All our undergraduate, postgraduate, full-time, part-time, apprenticeships, and short courses are designed to meet real-world needs. "
           label="click me"
           width="100%"
-          imgWidth="50%"
-          imgHeight="300px"
-          className="dynamic-card"
+          imgWidth="100%"
+          imgHeight="auto"
+          className="dynamic-card-two"
         />
         </div>
   )

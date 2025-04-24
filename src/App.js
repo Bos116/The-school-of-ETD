@@ -11,6 +11,7 @@ import Navbar from "./components/navbar/Navbar";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import CreateComment from "./pages/CreateComment"
+import Footer from "./components/Footers/Footer";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -53,6 +54,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/comment/:postId" element={<CreateComment />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

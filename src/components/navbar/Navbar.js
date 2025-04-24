@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png"; // Replace with your logo file path
+import logo from "../images/logo.png"; 
 
 function Navbar({ isAuth, signUserOut }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [hoveredLink, setHoveredLink] = useState(null); // Track hovered link
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -43,7 +44,7 @@ function Navbar({ isAuth, signUserOut }) {
       display: menuOpen ? "flex" : "none",
       flexDirection: "column",
       position: "absolute",
-      top: "100%", // Ensures menu appears below navbar
+      top: "100%",
       right: "0",
       backgroundColor: "#ffffff",
       boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
@@ -52,14 +53,15 @@ function Navbar({ isAuth, signUserOut }) {
       borderRadius: "5px",
       zIndex: 1000,
     },
-    link: {
+    link: (isHovered) => ({
       textDecoration: "none",
-      color: "#000000",
+      color: isHovered ? "#007BFF" : "#000000", // Change color on hover
       fontSize: "16px",
       fontWeight: "bold",
       padding: "10px 0",
       display: "block",
-    },
+      transition: "color 0.3s ease", // Smooth transition
+    }),
     commonButton: {
       display: "inline-block",
       textAlign: "center",
@@ -70,11 +72,11 @@ function Navbar({ isAuth, signUserOut }) {
       padding: "5px 10px",
       cursor: "pointer",
       fontSize: "16px",
-      textDecoration: "none", // Ensure text looks like a button
+      textDecoration: "none",
       marginTop: "10px",
     },
     logoutButton: {
-      backgroundColor: "#ff4d4d", // Red for logout
+      backgroundColor: "#ff4d4d",
     },
     burgerMenu: {
       display: isMobile ? "flex" : "none",
@@ -107,13 +109,31 @@ function Navbar({ isAuth, signUserOut }) {
       {/* Mobile Navigation Menu */}
       {isMobile && (
         <div style={styles.mobileMenu}>
-          <Link to="/" style={styles.link} onClick={closeMenu}>
+          <Link 
+            to="/" 
+            style={styles.link(hoveredLink === "home")} 
+            onMouseEnter={() => setHoveredLink("home")} 
+            onMouseLeave={() => setHoveredLink(null)}
+            onClick={closeMenu}
+          >
             Home
           </Link>
-          <Link to="/quiz" style={styles.link} onClick={closeMenu}>
+          <Link 
+            to="/quiz" 
+            style={styles.link(hoveredLink === "quiz")} 
+            onMouseEnter={() => setHoveredLink("quiz")} 
+            onMouseLeave={() => setHoveredLink(null)}
+            onClick={closeMenu}
+          >
             Quiz
           </Link>
-          <Link to="/contact" style={styles.link} onClick={closeMenu}>
+          <Link 
+            to="/contact" 
+            style={styles.link(hoveredLink === "contact")} 
+            onMouseEnter={() => setHoveredLink("contact")} 
+            onMouseLeave={() => setHoveredLink(null)}
+            onClick={closeMenu}
+          >
             Contact-Us
           </Link>
           {!isAuth ? (
@@ -122,7 +142,13 @@ function Navbar({ isAuth, signUserOut }) {
             </Link>
           ) : (
             <>
-              <Link to="/blog" style={styles.link} onClick={closeMenu}>
+              <Link 
+                to="/blog" 
+                style={styles.link(hoveredLink === "blog")} 
+                onMouseEnter={() => setHoveredLink("blog")} 
+                onMouseLeave={() => setHoveredLink(null)}
+                onClick={closeMenu}
+              >
                 Blog
               </Link>
               <button
@@ -141,13 +167,28 @@ function Navbar({ isAuth, signUserOut }) {
 
       {/* Desktop Navigation */}
       <div style={{ ...styles.navLinks, display: isMobile ? "none" : "flex" }}>
-        <Link to="/" style={styles.link}>
+        <Link 
+          to="/" 
+          style={styles.link(hoveredLink === "home")} 
+          onMouseEnter={() => setHoveredLink("home")} 
+          onMouseLeave={() => setHoveredLink(null)}
+        >
           Home
         </Link>
-        <Link to="/quiz" style={styles.link}>
+        <Link 
+          to="/quiz" 
+          style={styles.link(hoveredLink === "quiz")} 
+          onMouseEnter={() => setHoveredLink("quiz")} 
+          onMouseLeave={() => setHoveredLink(null)}
+        >
           Quiz
         </Link>
-        <Link to="/contact" style={styles.link}>
+        <Link 
+          to="/contact" 
+          style={styles.link(hoveredLink === "contact")} 
+          onMouseEnter={() => setHoveredLink("contact")} 
+          onMouseLeave={() => setHoveredLink(null)}
+        >
           Contact-Us
         </Link>
         {!isAuth ? (
@@ -156,7 +197,12 @@ function Navbar({ isAuth, signUserOut }) {
           </Link>
         ) : (
           <>
-            <Link to="/blog" style={styles.link}>
+            <Link 
+              to="/blog" 
+              style={styles.link(hoveredLink === "blog")} 
+              onMouseEnter={() => setHoveredLink("blog")} 
+              onMouseLeave={() => setHoveredLink(null)}
+            >
               Blog
             </Link>
             <button onClick={signUserOut} style={{ ...styles.commonButton, ...styles.logoutButton }}>

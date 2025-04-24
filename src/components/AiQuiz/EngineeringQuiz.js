@@ -8,17 +8,16 @@ import Five from "../images/QuizImages/5.jpg";
 import Six from "../images/QuizImages/6.jpeg";
 import Seven from "../images/QuizImages/7.jpg";
 import Eight from "../images/QuizImages/8.jpg";
-import SideBox from "../SideBox";
 
 const quizData = [
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: One },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Two },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Three },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Four },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Five },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Six },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Seven },
-    { question: "Which fields of engineering in this image inspire or interest you the most?", image: Eight },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: One },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Two },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Three },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Four },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Five },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Six },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Seven },
+    { question: "Click on the fields of engineering in this image that inspire or interest you the most. Don’t worry if none of the fields appeal to you.", image: Eight },
 ];
 
 const EngineeringQuiz = () => {
@@ -26,7 +25,6 @@ const EngineeringQuiz = () => {
     const [userInputs, setUserInputs] = useState({});
     const [showResults, setShowResults] = useState(false);
     const [finalUserInputs, setFinalUserInputs] = useState([]);
-    const [embeddings, setEmbeddings] = useState([]);
 
     // Handle image click to place multiple input boxes
     const handleImageClick = (event) => {
@@ -159,7 +157,7 @@ const styles = {
         padding: "20px",
         backgroundColor: "#f4f4f4",
         borderRadius: "10px",
-        maxWidth: "800px",
+        maxWidth: "80%",
         margin: "auto",
         boxShadow: "0px 4px 8px rgba(0,0,0,0.1)"
     },
@@ -176,11 +174,12 @@ const styles = {
     imageContainer: {
         position: "relative",
         display: "inline-block",
-        marginTop: "10px"
+        marginTop: "10px",
+        width: "100%"
     },
     image: {
         width: "100%",
-        maxHeight: "400px",
+        maxHeight: "600px",
         objectFit: "cover",
         borderRadius: "8px",
         cursor: "pointer",
@@ -188,7 +187,7 @@ const styles = {
     },
     inputBox: {
         position: "absolute",
-        width: "150px",
+        width: "230px",
         padding: "5px",
         borderRadius: "5px",
         border: "1px solid black",
