@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase-config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const CreatePost = ({ isAuth }) => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
-  const [category, setCategory] = useState(""); // 🆕 State for category
+  const [category, setCategory] = useState("");
   const postCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const CreatePost = ({ isAuth }) => {
     await addDoc(postCollectionRef, {
       title,
       postText,
-      category, // 🆕 Added category
+      category,
       Author: {
         name: auth.currentUser.displayName,
         Id: auth.currentUser.uid,
@@ -23,7 +23,6 @@ const CreatePost = ({ isAuth }) => {
     navigate("/");
   };
 
-  // 🎨 Styling object
   const styles = {
     container: {
       display: "flex",
@@ -106,8 +105,9 @@ const CreatePost = ({ isAuth }) => {
 
         {/* Title Input */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Title:</label>
+          <label htmlFor="title" style={styles.label}>Title:</label>
           <input
+            id="title"
             type="text"
             placeholder="Enter post title..."
             style={styles.input}
@@ -115,10 +115,11 @@ const CreatePost = ({ isAuth }) => {
           />
         </div>
 
-        {/* 🆕 Category Dropdown */}
+        {/* Category Dropdown */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Category:</label>
+          <label htmlFor="category" style={styles.label}>Category:</label>
           <select
+            id="category"
             style={styles.select}
             value={category}
             onChange={(event) => setCategory(event.target.value)}
@@ -134,8 +135,9 @@ const CreatePost = ({ isAuth }) => {
 
         {/* Post Text Input */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Post:</label>
+          <label htmlFor="postText" style={styles.label}>Post:</label>
           <textarea
+            id="postText"
             placeholder="Write your post here..."
             style={styles.textarea}
             onChange={(event) => setPostText(event.target.value)}

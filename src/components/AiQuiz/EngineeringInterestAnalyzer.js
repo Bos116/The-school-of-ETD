@@ -24,13 +24,12 @@ const EngineeringInterestAnalyzer = ({ userInputs }) => {
       try {
         const loadedModel = await use.load();
         setModel(loadedModel);
-        console.log("✅ AI Model Loaded Successfully");
+        console.log("AI Model Loaded Successfully");
 
         const fieldEmbeddingsTensor = await loadedModel.embed(engineeringFields);
-        const fieldEmbeddingsArray = await fieldEmbeddingsTensor.array();  // Correct async handling
+        const fieldEmbeddingsArray = await fieldEmbeddingsTensor.array();  
         setFieldEmbeddings(fieldEmbeddingsArray);
       } catch (error) {
-        console.error("❌ Error loading model:", error);
         setErrorMessage("Failed to load AI model.");
       }
     };
@@ -40,7 +39,7 @@ const EngineeringInterestAnalyzer = ({ userInputs }) => {
   // Function to calculate Cosine Similarity between two vectors
   const cosineSimilarity = (vecA, vecB) => {
     if (!vecA || !vecB || vecA.length !== vecB.length) {
-      console.warn("⚠️ Skipping similarity computation due to mismatched vectors.");
+      console.warn("Skipping similarity computation due to mismatched vectors.");
       return 0;
     }
     const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
@@ -58,7 +57,7 @@ const EngineeringInterestAnalyzer = ({ userInputs }) => {
 
       if (userInputs.length === 0) {
         setIsLoading(false);
-        setErrorMessage("⚠️ No interests provided!");
+        setErrorMessage("No interests provided!");
         return;
       }
 
@@ -105,7 +104,7 @@ const EngineeringInterestAnalyzer = ({ userInputs }) => {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h2 style={{ color: "#2E3A59" }}>🚀 AI Engineering Interest Analyzer</h2>
+      <h2 style={{ color: "#2E3A59" }}>AI Engineering Interest Analyzer</h2>
       <h3 style={{ color: "#2E3A59"}}>Wait a moment your intrests are being analysed...</h3>
 
       {isLoading && <p>Analyzing...</p>}

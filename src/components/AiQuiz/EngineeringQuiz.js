@@ -74,7 +74,7 @@ const EngineeringQuiz = () => {
         <div style={styles.quizContainer}>
             {!showResults ? (
                 <>
-                    <h2 style={styles.header}>📝 Engineering Interest Quiz</h2>
+                    <h2 style={styles.header}>Engineering Interest Quiz</h2>
                     <h3 style={styles.questionText}>{quizData[currentQuestion].question}</h3>
 
                     {/* Clickable Image */}
@@ -107,17 +107,17 @@ const EngineeringQuiz = () => {
                     {/* Buttons */}
                     <div style={styles.buttonContainer}>
                         <button onClick={prevQuestion} disabled={currentQuestion === 0} style={styles.navButton}>
-                            ◀️ Previous
+                            Previous
                         </button>
 
                         {userInputs[currentQuestion] && userInputs[currentQuestion].length > 0 && (
                             <button onClick={clearCurrentAnswers} style={styles.clearButton}>
-                                🗑️ Remove All Answers
+                                Remove All Answers
                             </button>
                         )}
 
                         {currentQuestion < quizData.length - 1 ? (
-                            <button onClick={nextQuestion} style={styles.navButton}>Next ▶️</button>
+                            <button onClick={nextQuestion} style={styles.navButton}>Next</button>
                         ) : (
                             <button onClick={submitQuiz} style={styles.submitButton}>Submit</button>
                         )}
@@ -126,7 +126,7 @@ const EngineeringQuiz = () => {
                 </>
             ) : (
                 <div style={styles.resultsContainer}>
-                    <h2 style={styles.header}>📊 Quiz Results</h2>
+                    <h2 style={styles.header}>Quiz Results</h2>
                     <h3 style={styles.resultText}>Your Engineering Field Descriptions:</h3>
                     <ul>
                         {Object.entries(userInputs).map(([questionIndex, inputs]) => (

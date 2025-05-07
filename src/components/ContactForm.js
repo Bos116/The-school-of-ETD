@@ -52,7 +52,7 @@ const ContactForm = () => {
 
     return (
         <div style={{ maxWidth: "600px", margin: "auto", padding: "20px", border: "1px solid #ddd", borderRadius: "10px", background: "#f9f9f9" }}>
-            <h2>📞 Contact Us</h2>
+            <h2> Contact Us</h2>
             <form onSubmit={SendEmail} style={{ display: "flex", flexDirection: "column" }}>
                 
                 {/* Name */}

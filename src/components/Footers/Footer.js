@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"; // or your preferred icon lib
+import Logo from "../images/footer-logo-white.png"
 
 const Footer = () => {
   const footerStyle = {
@@ -58,11 +58,6 @@ const Footer = () => {
     paddingTop: "16px",
   };
 
-  const socialIconStyle = {
-    display: "flex",
-    gap: "16px",
-  };
-
   return (
     <footer style={footerStyle}>
       <div style={containerStyle}>
@@ -78,24 +73,18 @@ const Footer = () => {
           <ul style={linkListStyle}>
             <li><a href="/" style={linkStyle}>Home</a></li>
             <li><a href="/contact" style={linkStyle}>Services</a></li>
-            <li><a href="/blog" style={linkStyle}>Case Studies</a></li>
+            <li><a href="/blog" style={linkStyle}>Blog</a></li>
             <li><a href="/quiz" style={linkStyle}>Contact</a></li>
           </ul>
         </div>
 
         <div style={columnStyle}>
-          <h2 style={headingStyle}>Follow Us</h2>
-          <div style={socialIconStyle}>
-            <a href="https://www.facebook.com"><Facebook color="#9ca3af" /></a>
-            <a href="https://www.twitter.com"><Twitter color="#9ca3af" /></a>
-            <a href="https://www.instagram.com"><Instagram color="#9ca3af" /></a>
-            <a href="https://www.linkedin.com"><Linkedin color="#9ca3af" /></a>
-          </div>
+          <img src={Logo} alt="A description"></img>
         </div>
       </div>
 
       <div style={bottomTextStyle}>
-        © {new Date().getFullYear()} Canterbury Christ Church University. All rights reserved.
+        © {new Date().getFullYear()} The School Of ETD. All rights reserved.
       </div>
     </footer>
   );

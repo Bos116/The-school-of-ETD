@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
+import Header from "../components/Headers/Header";
 
 function Blog({ isAuth }) {
   const [postLists, setPostList] = useState([]); // State to store all posts
@@ -57,11 +58,23 @@ function Blog({ isAuth }) {
   };
 
   return (
-    <div className="homePage">
+    <div className="homePage" >
+            <Header
+              title="The school of engineering blog"
+              subtitle="Explore insights, ideas, and innovation on our engineering blog. From student stories to expert advice and the latest in tech, our blog is your space to stay informed, inspired, and engaged with the engineering world."
+              backgroundImage=""
+              backgroundOverlay="rgba(0, 0, 0, 0.5)"
+              gradientBackground="linear-gradient(45deg, rgb(4, 32, 192), rgb(89, 155, 253))"
+              titleFontSize="4rem"
+              subtitleFontSize="1.2rem"
+              animationType="slide-up"
+              videoBackground=""
+              contentAlignment="center"
+            />
       {/* Create Post Button */}
-      <div style={{ marginBottom: "20px", textAlign: "center" }}>
-        <button>
-          <Link to="/createpost" style={{ textDecoration: "none", color: "inherit", fontSize: "14px" }}>
+      <div className="create-post-container">
+        <button className="create-post-button">
+          <Link to="/createpost" className="create-post-link">
             Create a Post
           </Link>
         </button>
@@ -101,14 +114,14 @@ function Blog({ isAuth }) {
             </div>
           </div>
           <div className="postTextContainer">{post.postText}</div>
-          <h3 style={{ color: "blue" }}>@{post.Author?.name || "Unknown Author"}</h3>
+          <h3 className="post-author">@{post.Author?.name || "Unknown Author"}</h3>
           {/* Display Comment Count */}
           <p>
             {post.commentCount} {post.commentCount === 1 ? "Comment" : "Comments"}
           </p>
 
           <Link to={`/comment/${post.id}`}>
-            <button>View Comments</button>
+            <button className="button">View Comments</button>
           </Link>
         </div>
       ))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png"; 
+import logo from "../images/logo2.png"; 
 
 function Navbar({ isAuth, signUserOut }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,15 +18,20 @@ function Navbar({ isAuth, signUserOut }) {
 
   const styles = {
     navbar: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 9999,
+      backgroundColor: "#ffffff",
+      padding: "10px 20px",
+      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "#ffffff",
-      padding: "1px 20px",
-      maxWidth: "100%",
-      flexWrap: "wrap",
+      width: "100%",
+      height: "70px",
       boxSizing: "border-box",
-      position: "relative",
     },
     logoContainer: {
       display: "flex",
